@@ -76,7 +76,7 @@ song.addEventListener("timeupdate", function () {
 function convertTime(seconds) {
 
     let currentTime = document.getElementById("currentTime")
-    console.log(currentTime);   
+    
     
 
     let min = Math.floor(seconds / 60)
@@ -89,9 +89,7 @@ function convertTime(seconds) {
     currentTime.textContent = min + ":" + sec
 
     totalTime(song.duration)
-    console.log(seconds);
-    console.log(min);
-
+ 
 };
 
 
@@ -148,15 +146,19 @@ function muted(){
 
 
 function increase(){
-    if(song.volume < 1){
+    
+    if(!(song.volume+0.2 > 1)){
     song.volume += 0.2
     }
-
-
+    console.log(song.volume);
+    
 }
 
 function decrease(){
-    if(song.volume > 1){
+   if(!(song.volume-0.2 < 0)){
     song.volume -= 0.2
-    }
+   }
+    
+  
+    console.log(song.volume);
 }   
